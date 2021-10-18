@@ -6,7 +6,7 @@ export const HeroList = ({ publisher}) => {
     const heroes = getHeroesByPublisher(publisher);
 
     return (
-        <ul>
+        <div className='card-columns'>
             {
                 heroes.map( hero => (
                     <li key={hero.id}>
@@ -14,6 +14,6 @@ export const HeroList = ({ publisher}) => {
                     </li>
                 ) )
             }
-        </ul>
+        </div>
     )
 }
