@@ -1,7 +1,7 @@
 import React from 'react';
 import { Navbar } from '../components/ui/NavBar';
 import {
-    // Redirect,
+    Redirect,
     Switch,
     Route,
 } from "react-router-dom";
@@ -18,8 +18,8 @@ export const DashboardRoutes = () => {
                 <Switch>
                     <Route exact path='/marvel' component={MarvelScreen} />
                     <Route exact path='/marvel/:heroeId' component={HeroScreen} />
-                    <Route  path='/dc' component={DcScreen} />
-                    {/* <Redirect to='/marvel' /> */}
+                    <Route exact path='/dc' component={DcScreen} />
+                    <Redirect to='/marvel' />
                 </Switch>
             </div>
         </>

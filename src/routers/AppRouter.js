@@ -14,11 +14,8 @@ export const AppRouter = () => {
         <Router>
             <div>
                 {/* <Navbar /> */}
-
                 <Switch>
                     <Route exact path='/login' component={LoginScreen} />
-                    {/* <Route exact path='/marvel' component={MarvelScreen} /> */}
-                    {/* <Route exact path='/dc' component={DcScreen} /> */}
                     <Route  path='/' component={DashboardRoutes} />
                 </Switch>
             </div>
