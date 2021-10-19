@@ -1,4 +1,5 @@
 import React from 'react'
+import { HeroCard } from './HeroCard';
 import { getHeroesByPublisher } from '../../selectors/getHeroesByPublisher';
 
 export const HeroList = ({ publisher}) => {
@@ -9,9 +10,10 @@ export const HeroList = ({ publisher}) => {
         <div className='card-columns'>
             {
                 heroes.map( hero => (
-                    <li key={hero.id}>
-                        {hero.superhero}
-                    </li>
+                    <HeroCard   key={hero.id} 
+                    // Esto manda cada una de las propiedades, para la desestructuracion em el HeroCard
+                        {...hero} 
+                    />
                 ) )
             }
         </div>
