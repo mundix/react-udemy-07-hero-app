@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { HeroCard } from './HeroCard';
 import { getHeroesByPublisher } from '../../selectors/getHeroesByPublisher';
 
 export const HeroList = ({ publisher}) => {
 
-    const heroes = getHeroesByPublisher(publisher);
+    // Usar el memo se cambia esto por la expresion de abajo. 
+    // const heroes = getHeroesByPublisher(publisher);
+    // Esto es nua function (getHeroesByPublisher), el React.memo se usa en componentes  
+    const heroes = useMemo(() => getHeroesByPublisher(publisher), [publisher]);
 
     return (
-        <div className='card-columns'>
+        <div className='card-columns animate__animated animate__fadeIn'>
             {
                 heroes.map( hero => (
                     <HeroCard   key={hero.id} 
