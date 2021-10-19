@@ -2,7 +2,6 @@ import React, { useMemo } from 'react';
 // https://www.npmjs.com/package/query-string Libreria para instalar 
 import queryString from 'query-string';
 import { useLocation } from 'react-router';
-import { heroes } from '../../data/heroes';
 import { HeroCard } from '../heroes/HeroCard';
 import { useForm } from '../hooks/useForm';
 import { getHeroesByName } from '../../selectors/getHeroesByName';
