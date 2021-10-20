@@ -10,6 +10,7 @@ export const LoginScreen = ({ history }) => {
 
     const handleClick = () => {
         // history.push('/');
+        history.replace('/');
         dispatch({
             type: types.login,
             payload: {
@@ -17,8 +18,6 @@ export const LoginScreen = ({ history }) => {
                 logged: true
             }
         });
-        history.replace('/');
-
     }
 
     return (
