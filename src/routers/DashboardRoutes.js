@@ -11,9 +11,15 @@ import { HeroScreen } from '../components/heroes/HeroScreen';
 import { DcScreen } from '../components/dc/DcScreen';
 import { SearchScreen } from '../components/search/SearchScreen';
 
+// Se envia el history del prop del componente que esta dentro de las rutas, y asi 
+// El NavBar tiene el obj history y asi puedo usar history.replace('/login')
+// La idea es no compartir mucha informacion atraves de las properies y sin el shistory
+// export const DashboardRoutes = ({history}) => {
 export const DashboardRoutes = () => {
     return (
         <>
+        
+            {/* <Navbar history={history}/> */}
             <Navbar />
             <div className='container mt-2'> 
                 <Switch>

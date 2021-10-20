@@ -8,21 +8,27 @@ import { getHeroesByName } from '../../selectors/getHeroesByName';
 
 export const SearchScreen = ({ history }) => {
 
-    const location = useLocation();
+    // Library query string package 
+    const location = useLocation(); //useLocation Hook from react router 
     const { q = '' } = queryString.parse(location.search);
 
     // const [formValues, handleInputChange] = useForm({
     // Despues de llamar al use Form hay que desestruturizarlo 
     // const [{ searchText }, handleInputChange] = useForm({ searchText: '' });
-    const [{ searchText }, handleInputChange] = useForm({ searchText: q }); //el queryString se le pasa al valor incial del formulario
+    //el queryString se le pasa al valor incial del formulario
+    const [ formValue, handleInputChange] = useForm({ 
+        searchText: q 
+    }); 
+    const  {searchText} = formValue;
+    //Cada ves que escribo algo dispara la busqueda , cada ves que cambio el states, devuelv todo eso
     // const heroesFiltered = getHeroesByName(searchText); 
-    //En ves del searchTextt, el q por que es el query que cambia 
-    const heroesFiltered = useMemo(() => getHeroesByName(searchText), [q]); 
+    const heroesFiltered = useMemo(() => getHeroesByName(q), [q]);
 
     const handleSearch = (e) => {
         e.preventDefault();
+        //le grega a la url el query string 
         history.push(`?q=${searchText}`);
-    }
+    } 
 
 
     return (

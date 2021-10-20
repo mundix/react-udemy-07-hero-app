@@ -1,17 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../auth/AuthContext';
+import { types } from '../types/types';
 
 
-export const LoginScreen = ({history}) => {
+export const LoginScreen = ({ history }) => {
 
-    const handleClick = () =>{
-        history.push('/marvel');
+
+    const { dispatch } = useContext(AuthContext);
+
+    const handleClick = () => {
+        // history.push('/');
+        dispatch({
+            type: types.login,
+            payload: {
+                name: 'Edmundo',
+                logged: true
+            }
+        });
+        history.replace('/');
+
     }
 
     return (
         <div className='container mt-5'>
             <h1>Login</h1>
             <hr />
-            <button 
+            <button
                 className="btn btn-primary"
                 onClick={handleClick}
             >
