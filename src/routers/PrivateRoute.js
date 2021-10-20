@@ -9,6 +9,11 @@ export const PrivateRoute = ({
     component: Component,
     ...rest //El resto de los elementos van a caer por aca. 
 }) => {
+
+    // guardamos el lastpath para que me redireccion a la pagina que estba si por ejemplo el login
+    // O token expira. 
+    localStorage.setItem('lastPath',rest.location.pathname);
+
     return (
         <Route {...rest}
             component={ (props) => (
