@@ -24,6 +24,7 @@ describe('Pruebas en <DashboardRoutes/>', () => {
             );
         
             expect(wrapper).toMatchSnapshot();
+            expect(wrapper.find('.text-info').text().trim()).toBe('Edmundo');
     });
 
 });

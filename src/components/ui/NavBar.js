@@ -13,7 +13,7 @@ export const Navbar = () => {
     const history = useHistory(); //este de react router dom y me permite acceder al objeto history 
 
     const handleLogout = () => {
-
+        // console.log('click');
         history.replace('/login');
         dispatch({
             type: types.logout,
