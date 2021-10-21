@@ -13,7 +13,7 @@ export const useForm = (initialState = {}) => {
         setValues({
             ...values,
             [target.name]: target.value
-        })
+        });
     }
     // Retorna un array 
     return [values, handleInputChange, reset];
