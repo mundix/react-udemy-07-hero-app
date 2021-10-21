@@ -5,6 +5,7 @@ import { getHeroById } from '../../selectors/getHeroById';
 export const HeroScreen = ({history}) => {
 
     const { heroeId } = useParams();
+    // console.log(heroeId);
     // Si la ruta es undefined debo controlarlo
     // const hero = getHeroById(heroeId);
     // Optimizando ...
