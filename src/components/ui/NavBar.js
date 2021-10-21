@@ -10,7 +10,7 @@ export const Navbar = () => {
     // El context Provider habilita informacion en el arbol del componente 
     // El Router tambien provee informacion 
     const { user: { name }, dispatch } = useContext(AuthContext);
-    const history = useHistory(); //este de react router dom
+    const history = useHistory(); //este de react router dom y me permite acceder al objeto history 
 
     const handleLogout = () => {
 

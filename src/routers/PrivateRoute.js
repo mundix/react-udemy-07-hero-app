@@ -12,14 +12,17 @@ export const PrivateRoute = ({
 
     // guardamos el lastpath para que me redireccion a la pagina que estba si por ejemplo el login
     // O token expira. 
-    localStorage.setItem('lastPath',rest.location.pathname);
+    // El rest debe tener el location.pathname, debido a que es del grupo de propiedades 
+    // De un componente Route como es Private o Public Route 
+    // Este me permite acceder al objeto location, al igual que el history 
+    localStorage.setItem('lastPath', rest.location.pathname);
 
     return (
         <Route {...rest}
-            component={ (props) => (
+            component={(props) => (
                 (isAuthenticated)
-                ? (<Component {...props} />)
-                : (<Redirect to='/login'/>)
+                    ? (<Component {...props} />)
+                    : (<Redirect to='/login' />)
             )}
         />
     )
