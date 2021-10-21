@@ -20,9 +20,9 @@ describe('Pruebas en <PrivateRoute/>', () => {
         // Shalow solo renderiza el high order component , el shallow no va a funciinar cuando teng oeste tipo de estructura, 
         // debo usar el mount dentro de enzyme
         // const wrapper = shallow(
-            // Si esta auth true , pasa la prueba 
-            // El redirect es un string vacio, por eso cuando esta false, no muestra nada. 
-            // Os ea si esta privado y no esta authenticado 
+        // Si esta auth true , pasa la prueba 
+        // El redirect es un string vacio, por eso cuando esta false, no muestra nada. 
+        // Os ea si esta privado y no esta authenticado 
         const wrapper = mount(
             <MemoryRouter>
                 <PrivateRoute
@@ -36,9 +36,21 @@ describe('Pruebas en <PrivateRoute/>', () => {
         // console.log(wrapper.html());
         expect(wrapper.find('span').exists()).toBe(true);
         // Se puede esperar con el toHaveBeenCalledWith con las propiedades y valores que deseamos evlauar. 
-        expect(localStorage.setItem).toHaveBeenLastCalledWith('lastpast', '/marvel');
+        expect(localStorage.setItem).toHaveBeenLastCalledWith('lastPath', '/marvel');
     });
 
+    test('Deben de bloquear el componetne si no esta authenticado', () => {
+        const wrapper = mount(
+            <MemoryRouter>
+                <PrivateRoute
+                    isAuthenticated={false}
+                    component={() => <span>Listo!</span>}
+                    {...props}
+                />
+            </MemoryRouter>
+        );
+        expect(wrapper.find('span').exists()).toBe(false);
+        expect(localStorage.setItem).toHaveBeenLastCalledWith('lastPath', '/marvel');
+    });
 
-    
 });
