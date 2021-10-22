@@ -101,5 +101,18 @@ describe('Pruebas en <HeroScreen/>', () => {
         expect(history.goBack).toHaveBeenCalled();
     })
     
+    test('Debe llamar el redirect si el heroe no existe', () => {
+        const wrapper = mount(
+            <MemoryRouter initialEntries={['/hero/marvel-spider321321321321321']}>
+                <Route
+                    path="/hero/:heroeId"
+                    component={() => <HeroScreen history={history} />}
+                />
+            </MemoryRouter>
+        );
+        // Esto deberia generar un Redirect por ende devolver un string vacio
+        expect(wrapper.html()).toBe('');
+    })
+    
 
 })
