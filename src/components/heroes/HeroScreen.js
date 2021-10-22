@@ -5,11 +5,12 @@ import { getHeroById } from '../../selectors/getHeroById';
 export const HeroScreen = ({history}) => {
 
     const { heroeId } = useParams();
-    // console.log(heroeId);
     // Si la ruta es undefined debo controlarlo
     // const hero = getHeroById(heroeId);
     // Optimizando ...
     const hero = useMemo(() => getHeroById(heroeId), [heroeId]);
+    // console.log('Hero:', hero, 'HeroId:', heroeId );
+
 
     // debo manejr la exepcion si no existe esto explota , 
     if(!hero) {
