@@ -2,6 +2,11 @@ import React, { useMemo } from 'react';
 import { Redirect, useParams } from 'react-router';
 import { getHeroById } from '../../selectors/getHeroById';
 
+// Movimos lso assets a la carepta src , para tener acceso 
+import batman from '../../assets/heroes/dc-batman.jpg';
+// Esto es propio de webpack
+// const heroImages = require.context('../../assets/heroes', true);
+
 export const HeroScreen = ({history}) => {
 
     const { heroeId } = useParams();
@@ -36,7 +41,9 @@ export const HeroScreen = ({history}) => {
         <div className='row mt-5'>
             <div className="col-4">
                 <img 
-                    src={`../assets/heroes/${heroeId}.jpg`} 
+                    // src={`../assets/heroes/${heroeId}.jpg`} 
+                    src={batman}
+                    // src={heroImages('./dc-superman.jpg')}
                     alt={superhero} 
                     className="img-thumbnail animate__animated animate__flip" />
             </div>
