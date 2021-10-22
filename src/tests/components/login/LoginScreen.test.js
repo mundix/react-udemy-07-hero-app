@@ -29,7 +29,9 @@ describe('Prueba en LoginScreen', () => {
     });
 
     test('Debe de hacer el dispatch  y la navegacion', () => {
-        wrapper.find('button').prop('onClick')();
+        // wrapper.find('button').prop('onClick')();
+        const handleClick = wrapper.find('button').prop('onClick');
+        handleClick(); //llama el click 
         expect(contextValue.dispatch).toHaveBeenCalledWith({
             type: types.login, 
             payload: {
@@ -37,7 +39,15 @@ describe('Prueba en LoginScreen', () => {
                 logged: true
             }
         });
+
         expect(historyMock.replace).toHaveBeenCalled();
+
+        // Ahora voy a probar el localStorage pasandole lastPath y la ruta
+        expect(historyMock.replace).toHaveBeenCalledWith('/');
+        localStorage.setItem('lastPath', '/dc');
+        handleClick(); //llama el click 
+        expect(historyMock.replace).toHaveBeenCalledWith('/dc');
+
     });
     
 });
